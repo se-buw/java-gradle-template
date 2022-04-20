@@ -13,29 +13,25 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
 public class App {
-    public String getGreeting() {
-    	String result = "";
-    	try (
-                Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/book.csv"));
-                @SuppressWarnings("deprecation")
-				CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
-                        .withFirstRecordAsHeader()
-                        .withIgnoreHeaderCase()
-                        .withTrim());
-            ) {
-                for (CSVRecord csvRecord : csvParser) {
-                    String name = csvRecord.get("author");
-                    result += "Hello " + name + "!\n";
-                }
-            } catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public String getGreeting() {
+		String result = "";
+		try (Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/book.csv"));
+				@SuppressWarnings("deprecation")
+				CSVParser csvParser = new CSVParser(reader,
+						CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
+			for (CSVRecord csvRecord : csvParser) {
+				String name = csvRecord.get("author");
+				result += "Hello " + name + "!\n";
 			}
-    	
-        return result;
-    }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-    }
+		return result;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(new App().getGreeting());
+	}
 }
