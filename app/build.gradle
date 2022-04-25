@@ -33,6 +33,10 @@ application {
     mainClass = 'de.buw.se4de.App'
 }
 
+run {
+    standardInput = System.in
+}
+
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()

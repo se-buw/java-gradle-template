@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -27,6 +28,12 @@ public class App {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		System.out.println("Enter your name:");
+		Scanner scanner = new Scanner(System.in);
+		String inputString = scanner.nextLine();
+		System.out.println("Hello " + inputString + "!");
+		scanner.close();
 
 		return result;
 	}
