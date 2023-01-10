@@ -33,6 +33,9 @@ application {
     mainClass = 'de.buw.se4de.App'
 }
 
+sourceCompatibility = '15' //or '1.5' or '1.7', etc.
+
+
 run {
     standardInput = System.in
 }
