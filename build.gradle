@@ -33,7 +33,7 @@ application {
     mainClass = 'de.buw.se4de.App'
 }
 
-sourceCompatibility = '15' //or '1.5' or '1.7', etc.
+// sourceCompatibility = '15' //or '1.5' or '1.7', etc.
 
 
 run {
@@ -43,4 +43,17 @@ run {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+test {
+    testLogging {
+        events "failed"
+        showStandardStreams = true
+        exceptionFormat "full"
+        showCauses false
+        showExceptions true
+        showStackTraces false
+        showStandardStreams = false
+    }
+    reports.html.required = true 
 }
